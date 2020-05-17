@@ -1,8 +1,8 @@
 pipeline {
 
   environment {
-    registry = "saptaktw/endgame"
-    registryCredential = 'dockerhub'
+    registry = "165.22.211.11:30002/endgame/saptaktw-endgame"
+    registryCredential = 'harbor-dockerhub'
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
   stages {
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/saptaktakalkar/playjenkins.git'
+        git 'https://github.com/narensh/playjenkins.git'
       }
     }
 
@@ -42,7 +42,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "kubeconfig")
         }
       }
     }

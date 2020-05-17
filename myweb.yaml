@@ -16,7 +16,7 @@ spec:
         app: myweb
     spec:
       containers:
-      - image: saptaktw/endgame:latest
+      - image: 165.22.211.11:30002/endgame/saptaktw-endgame:latest
         imagePullPolicy: Always
         name: myweb
 ---
